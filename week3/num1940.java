@@ -5,8 +5,8 @@ public class num1940{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int N = sc.nextInt();  // 재료 개수
-        int M = sc.nextInt();  // 갑옷을 만드는 데 필요한 수
+        int N = sc.nextInt();   
+        int M = sc.nextInt();   
 
         int[] materials = new int[N];
 
