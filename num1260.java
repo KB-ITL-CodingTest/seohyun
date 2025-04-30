@@ -1,11 +1,11 @@
 /* 1260번 -DFS&BFS- 실버2 
  DFS은 재귀, BFS 는 큐를 사용!
-*/
+*//*
 
 import java.util.*;
 
 public class num1260{
-    static ArrayList<Integer>() family;
+    static ArrayList<Integer> family= new ArrayList<>();
     static boolean[] once;
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
@@ -17,7 +17,7 @@ public class num1260{
         int num=sc.nextInt();
 
         family = new ArrayList[dot+1];
-/* 그래프를 먼저 구성하기! */
+*//* 그래프를 먼저 구성하기! *//*
 
 for(int i=1;i<=dot;i++){
 
@@ -26,8 +26,8 @@ for(int i=1;i<=dot;i++){
 for(int i=0;i<line;i++){
     int num1=sc.nextInt();
     int num2=sc.nextInt();
-    family[num1].add[num2];
-    family[num2].add[num1];
+    family.get(num1).add(num2);
+    family.get(num2).add(num1);
 
 }
 for(int i=1;i<=dot;i++){
@@ -67,4 +67,4 @@ static void bfs(int first){
     }
    }
 }
-}
+}*/
