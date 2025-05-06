@@ -1,4 +1,4 @@
-/* 1697번 -나무조각- 브론즈1 */
+package week1;/* 1697번 -나무조각- 브론즈1 */
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-/* num 7576 풀기 */
+package week1;/* num 7576 풀기 */
 import java.util.*;
 
 public class num7576{

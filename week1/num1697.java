@@ -1,4 +1,4 @@
-/* 숨바꼭질- 1697번 */
+package week1;/* 숨바꼭질- 1697번 */
 import java.util.*;
 
 public class num1697{

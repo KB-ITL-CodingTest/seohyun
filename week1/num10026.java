@@ -1,4 +1,4 @@
-/* 다시풀기!! */
+package week1;/* 다시풀기!! */
 import java.util.*;
 
 public class num10026{
