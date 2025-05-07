@@ -1,60 +1,57 @@
 package week6;
-
-import java.util.Scanner;
-
-/*로또- 내 문제*/
-/*1.
-* 2.
-* 3.
-* 0을 누르면 입력받는 것을 종료시킬 수 있도록
-* 출력할 때눈 사전순으로, 케이스 사이에는 빈 줄 하나씩 출력한다. */
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.*;
 
 public class num6603 {
-    static int[] nums;
-    static int[] selected = new int[6];
     static int k;
+    static int[] s;
+    static BufferedWriter bw;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        StringBuilder sb = new StringBuilder();
+        boolean firstTestCase = true;
+
         while (true) {
-            String[] input = br.readLine().split(" ");
-            k = Integer.parseInt(input[0]);
+            String line = br.readLine();
+            if (line.equals("0")) break;
 
-            if (k == 0) break;
-
-            nums = new int[k];
+            StringTokenizer st = new StringTokenizer(line); // 아직 미숙함!! 사용하는 것!
+// 입력된 첫 번째 숫자를 k로 저장하고, k개의 숫자를 담을 배열 s 생성.
+            k = Integer.parseInt(st.nextToken());
+            s = new int[k];
             for (int i = 0; i < k; i++) {
-                nums[i] = Integer.parseInt(input[i + 1]);
+                s[i] = Integer.parseInt(st.nextToken());
+                //입력된 숫자들을 s[] 배열에 저장.
             }
 
-            // 조합 시작
-            dfs(0, 0, sb);
-            sb.append("\n");
+            if (!firstTestCase) {
+                bw.newLine(); // 테스트 케이스 사이의 빈 줄
+            }
+            firstTestCase = false;
+
+            combine(0, 0, new int[6]); //start=0, depth=0, 길이 6짜리 배열을 만들어 넘김.
         }
 
-        System.out.println(sb);
+        bw.flush();// 모든 출력이 끝난 후 BufferedWriter와 BufferedReader를 정리 및 종료.
+        bw.close();
+        br.close();
     }
 
-    // depth: 현재까지 선택한 숫자 개수
-    // start: nums에서 탐색을 시작할 인덱스
-    static void dfs(int depth, int start, StringBuilder sb) {
+    // 조합 생성 함수
+    static void combine(int start, int depth, int[] result) throws IOException {
         if (depth == 6) {
             for (int i = 0; i < 6; i++) {
-                sb.append(selected[i]).append(" ");
+                bw.write(result[i] + (i < 5 ? " " : ""));
             }
-            sb.append("\n");
+            bw.newLine();
             return;
         }
 
         for (int i = start; i < k; i++) {
-            selected[depth] = nums[i];
-            dfs(depth + 1, i + 1, sb);
+            result[depth] = s[i];
+            combine(i + 1, depth + 1, result);
         }
     }
 }
-
